@@ -17,6 +17,7 @@
 * [Introduction to Payments](./payments.md)
 * [Managing Payment Methods](./managing-payment-methods.md)
 * [Adding Regions](./adding-regions.md)
+* [Currencies Reference](./currencies-reference.md)
 * [Adding a New Currency](./adding-a-new-currency.md)
 * [Deactivating a Country for Billing or Shipping](./deactivating-a-country-for-billing-or-shipping.md)
 * [Managing Exchange Rates](./managing-exchange-rates.md)
