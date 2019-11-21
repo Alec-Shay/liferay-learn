@@ -1,6 +1,6 @@
 # Managing Exchange Rates
 
-Exchange rates can be manually managed or automatically updated by an online service. To ensure that the store has the most recent exchange rates, administrators can enable an automatic currency conversion.
+Exchange rates can be manually managed or automatically updated by an online service. To ensure that the store has the most recent exchange rates, administrators can enable automatic currency conversion.
 
 ## Setting Exchange Rates Manually
 
@@ -19,7 +19,7 @@ Each currency's exchange rate can be configured manually by the store administra
 
 By default, Liferay Commerce relies on the European Central Bank for foreign exchange rates. The ECB updates its exchange rates approximately every 24 hours; for more timely updates, a solution may be customized to use a different source.
 
-To enable Liferay Commerce to update automatically the exchange rate:
+To allow Liferay Commerce to automatically update the exchange rate:
 
 1. Go to the _Control Panel_ → _Commerce_ → _Settings_.
 1. Click the _Currencies_ tab.

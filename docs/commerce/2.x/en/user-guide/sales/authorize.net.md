@@ -4,10 +4,10 @@ This article details how to enable Authorize.Net as a payment method. [Authorize
 
 ## Roadmap
 
-1. [Review prerequisites.](#prerequisites)
+1. [Review Prerequisites](#review-prerequisites)
 1. [Activate Authorize.net as a Payment Method](#activate-authorize.net-as-a-payment-method)
 
-## Prerequisites
+## Review Prerequisites
 
 Before configuring your store to use Authorize.Net, it is necessary to [generate the following](https://support.authorize.net/s/article/How-do-I-obtain-my-API-Login-ID-and-Transaction-Key):
 
