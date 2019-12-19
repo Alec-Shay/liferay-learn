@@ -96,7 +96,7 @@ If your network configuration or the geographical distance between nodes prevent
     - S3_Ping
     - Rackspace_Ping
 
-    If you aren't sure which one to choose, use TCPPing. The rest of these steps use TCPPing
+    If you aren't sure which one to choose, use TCPPing. The rest of these steps use TCPPing.
 
 3.  Extract the `tcp.xml` file from `$LIFERAY.HOME/osgi/marketplace/Liferay Foundation - Liferay Portal - Impl.lpkg/com​.​liferay​.​portal​.​cluster​.​multiple​-​[version].​jar/lib​/​jgroups​-​[version].​Final​.​jar/tcp.xml` to a location accessible to DXP, such as a folder called `jgroups` in the DXP web application's `WEB-INF/classes` folder.
 
@@ -197,7 +197,6 @@ Using separate control and transport channel ports lets you monitor control and 
 3.  Make a copy of the `tcp.xml` in the same location and rename both files, designating one for the control channel and the other for the transport channel. For example, you could use these file names:
 
     - `tcp-control.xml`
-
     - `tcp-transport.xml`
 
 5.  Modify the [Cluster Link properties](https://docs.liferay.com/portal/7.2-latest/propertiesdoc/portal.properties.html#Cluster%20Link) in the node's `portal-ext.properties` file to enable Cluster Link and point to the TCP XML file for each Cluster Link channel:
@@ -208,7 +207,7 @@ Using separate control and transport channel ports lets you monitor control and 
     cluster.link.channel.properties.transport.0=/jgroups/tcp-transport.xml
     ```
 
-6.  Modify each `tcp-*.xml` file's the TCP and TCPPing elements to account for each node's IP address and bind port.
+6.  Modify each `tcp-*.xml` file's TCP and TCPPing elements to account for each node's IP address and bind port.
 
     If you're vertically clustering (i.e., you have multiple servers running on the same physical or virtual system), every channel must use a unique unused bind port for discovery communication. In each `tcp-*.xml` file, assign the TCP tag's `bind_port` attribute to a unique, unused port.
 
