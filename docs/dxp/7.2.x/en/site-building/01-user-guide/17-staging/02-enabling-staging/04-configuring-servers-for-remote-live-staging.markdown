@@ -1,120 +1,76 @@
----
-header-id: configuring-servers-for-remote-live-staging
----
-
 # Configuring Servers for Remote Live Staging
 
-[TOC levels=1-4]
+Before you can enable Remote Live Staging for a Site, you must satisfy these necessary requirements:
 
-Before you can enable Remote Live staging for a site, you must satisfy some
-necessary requirements:
-
-- Add the remote Liferay server to the current Liferay server's list of allowed
-  servers, and vice versa.
-- Specify an authentication key to be shared by your current and remote server.
+[TODO: turn this into a proper list of steps, with links to headers for each step? Hardly makes sense to keep this here otherwise]
+1. Add the remote Liferay server to the current Liferay server's list of allowed servers, and vice versa.
+- Specify an authentication key to be shared by your local and remote servers.
 - Enable each Liferay server's tunneling servlet authentication verifier.
 - Update the Tunnel Auth Verifier Configuration of your remote Liferay instance.
 
-Follow the steps below to configure your servers for Remote Live staging.
+Follow the steps below to configure your servers for Remote Live Staging.
 
-1.  Add the following lines to your current Liferay server and remote Liferay
-    server's `portal-ext.properties` file:
+## Add the Remote ... [TODO: better/more concise title?]
+
+Add the following lines to your current Liferay server and remote Liferay server's `portal-ext.properties` file:
 
         tunneling.servlet.shared.secret=[secret]
         tunneling.servlet.shared.secret.hex=true
 
-    @product@'s use of a pre-shared key between your staging and production
-    environments helps secure the remote publication process. It also removes
-    the need to send the publishing user's password to the remote server for web
-    service authentication. Using a pre-shared key creates an authorization
-    context (permission checker) from the provided email address, screen name,
-    or user ID *without* the user's password.
+    The use of a pre-shared key between your Staging and production environments helps secure the remote publication process. It also removes the need to send the publishing user's password to the remote server for web service authentication. Using a pre-shared key creates an authorization context (permission checker) from the provided email address, screen name, or user ID *without* the user's password.
 
-2.  Specify the values for the servers' `tunneling.servlet.shared.secret`
-    property.
+2.  Specify values for each server's tunneling.servlet.shared.secret property.
 
-    The values for these properties depend on the chosen configured encryption
-    algorithm, since different encryption algorithms support keys of different
-    lengths. See the
-    [HTTP Tunneling](@platform-ref@/7.2-latest/propertiesdoc/portal.properties.html#HTTP%20Tunneling)
-    properties documentation for more information. Note that the following key
-    lengths are supported by the available encryption algorithms:
+    The values for these properties depend on the chosen configured encryption algorithm, since different encryption algorithms support keys of different lengths. See the [HTTP Tunneling](@platform-ref@/7.2-latest/propertiesdoc/portal.properties.html#HTTP%20Tunneling) properties documentation for more information. Note that the following key lengths are supported by the available encryption algorithms:
 
     - AES: 128, 192, and 256 bit keys
     - Blowfish: 32 - 448 bit keys
-    - DESede (Triple DES): 56, 112, or 168 bit keys (However, Liferay places an
-      artificial limit on the minimum key length and does not support the 56 bit
-      key length)
+    - DESede (Triple DES): 56, 112, or 168 bit keys (However, Liferay places an artificial limit on the minimum key length and does not support the 56 bit key length) [TODO: capitalization within parentheses after the other part?]
 
-    To prevent potential character encoding issues, you can use one of the
-    following two strategies:
+    To prevent potential character encoding issues, you can use one of the following two strategies:
 
-    2a. Use hexadecimal encoding (recommended). For example, if your password
-       was *abcdefghijklmnop*, you'd use the following settings in your
-       `portal-ext.properties` file:
+    2a. Use hexadecimal encoding (recommended). For example, if your password was *abcdefghijklmnop*, you'd use the following settings in your `portal-ext.properties` file:
 
         tunneling.servlet.shared.secret=6162636465666768696a6b6c6d6e6f70
         tunneling.servlet.shared.secret.hex=true
 
-    2b. Use printable ASCII characters (less secure). This degrades the password
-       entropy.
+    2b. Use printable ASCII characters (less secure). This degrades the password entropy.
 
-    If you don't use hexadecimal encoding (i.e., if you use the default setting
-    `tunneling.servlet.shared.secret.hex=false`), the
-    `tunneling.servlet.shared.secret` property's value *must* be ASCII
-    compliant.
+    If you don't use hexadecimal encoding (i.e., if you use the default setting `tunneling.servlet.shared.secret.hex=false`), the `tunneling.servlet.shared.secret` property's value *must* be ASCII compliant.
 
-    Once you've chosen a key, make sure the value of your current server matches
-    the value of your remote server.
+    Once you've chosen a key, make sure the value of your current server matches the value of your remote server.
 
-    **Important:** Do not share the key with any user. It is used exclusively
-    for communication between staging and production environments. Any user with
-    possession of the key can manage the production server, execute server-side
-    Java code, etc.
+    **Important:** Do not share the key with any user. It is used exclusively for communication between Staging and production environments. Any user with possession of the key can manage the production server, execute server-side Java code, etc.
 
 3.  Add the following line to your remote Liferay server's
     `portal-ext.properties` file:
 
         tunnel.servlet.hosts.allowed=127.0.0.1,SERVER_IP,[STAGING_IP]
 
-    The `[STAGING_IP]` value must be replaced by the staging server's IP
-    addresses. If the server has multiple interfaces, each IP address must also
-    be added, which would show as a source address for the http(s) requests
-    coming from the staging server. The `SERVER_IP` constant can remain set for
-    this property; it's automatically replaced by the Liferay server's IP
-    addresses.
+    The `[STAGING_IP]` value must be replaced by the staging server's IP addresses. If the server has multiple interfaces, each IP address must also be added, which would show as a source address for the http(s) requests coming from the staging server. The `SERVER_IP` constant can remain set for this property; it's automatically replaced by the Liferay server's IP addresses.
 
-    If you're validating IPv6 addresses, you must configure the app server's JVM
-    to not force the usage of IPv4 addresses. For example, if you're using
-    Tomcat, add the `-Djava.net.preferIPv4Stack=false` attribute in the
-    `$TOMCAT_HOME\bin\setenv.[bat|sh]` file.
+    If you're validating IPv6 addresses, you must configure the app server's JVM to not force the usage of IPv4 addresses. For example, if you're using Tomcat, add the `-Djava.net.preferIPv4Stack=false` attribute in the `$TOMCAT_HOME\bin\setenv.[bat|sh]` file.
 
-5.  Update the *TunnelAuthVerfierConfiguration* of your remote Liferay instance.
-    To do this, navigate to the Control Panel &rarr; *Configuration* &rarr;
-    *System Settings* &rarr; *API Authentication* &rarr; *Tunnel
-    *Authentication*. Click */api/liferay/do* and insert the additional IP
-    *addresses you're using in the *Hosts allowed* field. Then select *Update*.
+5.  Update the *TunnelAuthVerfierConfiguration* of your remote Liferay instance. To do this, navigate to the Control Panel &rarr; *Configuration* &rarr; *System Settings* &rarr; *API Authentication* &rarr; *Tunnel *Authentication*. Click */api/liferay/do* and insert the additional IP *addresses you're using in the *Hosts allowed* field. Then select *Update*.
 
-    Alternatively, you can also write this configuration into an OSGi file (e.g.,
-    `osgi/configs/com.liferay.portal.security.auth.verifier.tunnel.module.configuration.TunnelAuthVerifierConfiguration-default.config`)
-    in your @product@ instance:
+    Alternatively, you can also write this configuration into an OSGi file (e.g., `osgi/configs/com.liferay.portal.security.auth.verifier.tunnel.module.configuration.TunnelAuthVerifierConfiguration-default.config`) in your DXP instance:
 
         enabled=true
         hostsAllowed=127.0.0.1,SERVER_IP,[Local server IP address]
         serviceAccessPolicyName=SYSTEM_USER_PASSWORD
         urlsIncludes=/api/liferay/do
 
-6.  Restart both Liferay servers after making these configuration updates. After
-    restarting, log back in to your local Liferay instance as a site
-    administrator.
+6.  Restart both Liferay servers after making these configuration updates. After restarting, log back in to your local Liferay instance as a site administrator.
 
 That's all you need to do to configure Remote Live Staging! You can now
 [enable it](/docs/7-1/user/-/knowledge_base/u/enabling-remote-live-staging)!
 
-| **Note:** Never clone your @product@ database; doing this can duplicate
+| **Note:** Never clone your DXP database; doing this can duplicate
 | important data used by Staging (e.g., UUID), causing the Remote Publication
-| process to fail.
+| process to fail.  [TODO: we quite literally tell people to clone their database when upgrading, probably in other scenarios too. This warning doesn't seem right. Is it really necessary?]
 
+
+[TODO: move this information out where it's more accessible]
 For additional information on configuring Remote Live staging, see the topics
 below.
 
@@ -126,6 +82,7 @@ practice and can lead to import failures and data corruption. It is essential
 that all servers are updated to the same patch level to ensure remote staging
 works correctly.
 
+[TODO: where should this go? Keep it here? Different article? Moved into its own step somewhere?]
 ## Configuring Remote Staging's Buffer Size
 
 Similar to Local Live staging, it is a good idea to turn remote staging on at

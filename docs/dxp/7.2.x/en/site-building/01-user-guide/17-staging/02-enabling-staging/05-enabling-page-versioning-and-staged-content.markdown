@@ -1,39 +1,18 @@
----
-header-id: enabling-page-versioning-and-staged-content
----
-
 # Enabling Page Versioning and Staged Content
 
-[TOC levels=1-4]
+Enabling page versioning for a Site lets Site Administrators work in parallel on multiple versions of the Site's pages. Page versioning also maintains a history of all updates to the Site from the time page versioning was enabled. Site Administrators can revert to a previous version of the Site at any time. This flexibility is very important in cases where a mistake is found and it's important to publish a fix quickly. 
 
-Enabling page versioning for a site lets site administrators work in parallel on
-multiple versions of the site's pages. Page versioning also maintains a history
-of all updates to the site from the time page versioning was enabled. Site
-administrators can revert to a previous version of the site at any time. This
-flexibility is very important in cases where a mistake is found and it's
-important to publish a fix quickly. 
-
-You can enable page versioning for public pages or private pages on the Staging
-Configuration page below the menu for selecting your staging environment (Local
-or Remote). If you've already enabled staging, you can navigate to the Product
-Menu &rarr; *Publishing* &rarr; *Staging* and click the Options
-(![Options](../../../../images/icon-options.png)) button and select *Staging
-Configuration*.
+You can enable page versioning for public pages or private pages on the *Staging Configuration* page below the menu for selecting your Staging environment (Local or Remote). If you've already enabled Staging, you can navigate to the Product Menu &rarr; *Publishing* &rarr; *Staging* and click the Options (![Options](../../../../images/icon-options.png)) button and select *Staging Configuration*.
 
 ![Figure 1: You can decide to use versioning and choose what content should be staged.](../../../../images/staging-page-versioning-staged-content.png)
 
-You can also choose content for the staging environment to manage on the Staging
-Configuration page.
+## Choosing Staged Content
 
-Choosing content to be staged may sound self-explanatory, but content must have
-specific attributes in @product@ to use it in a staged environment. Content or
-an entity should be site-scoped, so they are always part of a site; otherwise,
-they are not eligible for staging. For example, page-scoped entities are only
-eligible for staging on published pages. When scoped data is on a page (e.g.,
-Web Content Display widget) and the page is published, the scoped data is
-published with it.
+You can also choose content for the Staging environment to manage on the Staging Configuration page.
 
-@product@ by default supports the following content groups for staging:
+Choosing content to be staged may sound self-explanatory, but content must have specific attributes in DXP to use it in a staged environment. Content or an entity should be Site-scoped, so they are always part of a Site; otherwise, they are not eligible for Staging. For example, page-scoped entities are only eligible for Staging on published pages. When scoped data is on a page (e.g., Web Content Display widget) and the page is published, the scoped data is published with it.
+
+DXP by default supports the following content groups for Staging:
 
 - Blogs
 - Bookmarks
@@ -49,28 +28,10 @@ published with it.
 - Widget Templates
 - Wiki
 
-Before you activate staging, choose which of these widgets' data you'd
-like to copy to staging. You'll learn about many of the collaboration widgets
-listed under the Staged Content heading when you read the
-[Collaboration Suite's](/docs/7-2/user/-/knowledge_base/u/collaboration)
-section of articles. For now, be aware that you can enable or disable staging
-for any of these widgets.
+[TODO: this is sort of blurring the line between "widget," "portlet," and now calling them "content groups"... kind of weird that it does'nt make a distinction. In the past these were always called portlets; what would be the clearest way to describe these?]
+The listed widgets, or content groups, contain one or more specific entities related to them. For example, selecting the Web Content widget does not mean you're only selecting web content itself [What does "web content itself" mean -- the "widget", the content??], but also web content folders.
 
-Why might you want to enable staging for some widget types but not others?
-In the case of collaborative widgets, you probably *don't* want to enable staging
-since such widgets are designed for user interaction. If their content were
-staged, you'd have to  publish your site manually whenever somebody posted a
-message on the message boards to make that message appear on the live site.
-Generally, you want web content to be staged because end users aren't creating
-that kind of content---web content is the stuff you publish to your site. But
-widgets like the Message Boards or Wiki should *not* be staged. Notice
-which widgets are marked for staging by default: if you enable staging and
-accept the defaults, staging is *not* enabled for the collaborative widgets.
-
-The listed widgets, or content groups, contain one or more specific entity. For
-example, selecting the Web Content widget does not mean you're only selecting
-web content itself, but also web content folders.
-
+[TODO: everything that follows seems more just like tips, or advice... is a lot of this kinda.. superfluous?]
 Certain content types can be linked together and can reference each other on
 different levels. One of the responsibilities of staging is to discover and
 maintain these references when publishing. Site administrators and content
@@ -89,7 +50,7 @@ possible to modify the individual portlet configuration once you enable staging.
 In case you need adjustments later on, you must turn staging off and re-enable
 it with your new configuration.
 
-Besides managing the widget-specific content, @product@ also has several special
+Besides managing the widget-specific content, DXP also has several special
 content types such as pages or users. For instance, pages are a part of the site
 and can reference other content types, but in a special way. The page references
 widgets, which means publishing a page also implies publishing its widgets. The

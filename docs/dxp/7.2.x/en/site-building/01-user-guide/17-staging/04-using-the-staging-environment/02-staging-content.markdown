@@ -1,48 +1,23 @@
----
-header-id: staging-content
----
-
 # Staging Content
+[TODO: better title for this? It's very vague. Maybe "Options for Staging Content"? "Overview of Staging Content UI" ?]
 
-[TOC levels=1-4]
+When you're on a staged Site, you have several options in the Staging Bar to help get started.
 
-When you're on the staged site, you have several options in the Staging Bar to
-help start your staging conquest.
+[TODO: screenshot? To show what the Staging Bar is, for context]
 
-**Site Pages Variation:** lets you work in parallel on multiple versions of a
-staged site page. You can choose the site page variation from the dropdown menu
-or manage them from the *Options* icon
-(![Options](../../../../images/icon-staging-bar-options.png)) in the Staging
-Bar. See the
-[Using Site Pages Variations](/docs/7-2/user/-/knowledge_base/u/using-multi-and-single-page-variations)
-article for more information.
+**Site Pages Variation:** lets you work in parallel on multiple versions of a staged Site page. You can choose the Site page variation from the dropdown menu or manage them from the *Options* icon (![Options](../../../../images/icon-staging-bar-options.png)) in the Staging Bar. See the [Using Site Pages Variations](/docs/7-2/user/-/knowledge_base/u/using-multi-and-single-page-variations) article for more information.
 
-**Page Variations:** lets you work in parallel on multiple versions of a staged
-page. You can choose the page variation from the dropdown menu or manage them
-from the *Options* icon
-(![Options](../../../../images/icon-staging-bar-options.png)) in the Staging
-Bar. See the
-[Using Site Pages Variations](/docs/7-2/user/-/knowledge_base/u/using-multi-and-single-page-variations)
-article for more information.
+[TODO: does this need to be distinct from Site Pages Variations?]
+**Page Variations:** lets you work in parallel on multiple versions of a staged page. You can choose the page variation from the dropdown menu or manage them from the *Options* icon (![Options](../../../../images/icon-staging-bar-options.png)) in the Staging Bar. See the [Using Site Pages Variations](/docs/7-2/user/-/knowledge_base/u/using-multi-and-single-page-variations) article for more information.
 
-**Undo/Redo:** steps back/forward through recent changes to a page, which can
-save you the time of manually adding or removing apps if you make a mistake. To
-access *Undo*/*Redo*, select the *Options* icon
-(![Options](../../../../images/icon-staging-bar-options.png)) in the Staging
-Bar.
+**Undo/Redo:** steps back/forward through recent changes to a page, which can save you the time of manually adding or removing apps if you make a mistake. To access *Undo*/*Redo*, select the *Options* icon (![Options](../../../../images/icon-staging-bar-options.png)) in the Staging Bar.
 
-**History:** shows the list of revisions of the page, based on publication
-dates. You can go to any change in the revision history and see how the pages
-looked at that point. To access *History*, select the *Options* icon
-(![Options](../../../../images/icon-staging-bar-options.png)) in the Staging
-Bar.
+**History:** shows the list of revisions of the page, based on publication dates. You can go to any change in the revision history and see how the pages looked at that point. To access *History*, select the *Options*icon (![Options](../../../../images/icon-staging-bar-options.png)) in the Staging Bar.
 
-**Ready for Publication:** After you're done making changes to the staged page,
-click this button. The status of the page changes from *Draft* to *Ready for
-Publication* and any changes you've made can be published to the Live Site. When
-you publish a page to live, only the version *Marked as Ready for Publication*
-is published.
+**Ready for Publication:** Click this button after you're done making changes to the staged page. The status of the page changes from *Draft* to *Ready for Publication* and any changes you've made can be published to the Live Site. When you publish a page to live, only the version *Marked as Ready for Publication* ,is published.
 
+
+[TODO: this may not belong here... move to its own article as a walk-through?]
 Now you'll step through a brief example for using the Staging Bar to stage and
 publish content.
 
