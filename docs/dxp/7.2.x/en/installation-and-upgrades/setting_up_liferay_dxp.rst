@@ -1,0 +1,9 @@
+Setting Up Liferay DXP
+======================
+
+.. toctree::
+   :maxdepth: 3
+
+   02-setting-up-liferay-dxp/performance_and_scalability.rst
+
+.. include:: /installation-and-upgrades/02-setting-up-liferay-dxp/README.rst
